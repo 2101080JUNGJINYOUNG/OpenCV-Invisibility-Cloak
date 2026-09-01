@@ -2,6 +2,12 @@
 
 컴퓨터 비전 6조 프로젝트. OpenCV와 Python으로 특정 색상의 천을 인식해서, 그 부분을 미리 저장해둔 배경 이미지로 실시간 대체하는 "투명 망토" 효과를 구현했습니다. 색상이 검출된 영역만 배경으로 바뀌기 때문에, 마치 사람이 화면에서 사라지는 것처럼 보이는 영상을 실시간으로 만들 수 있습니다.
 
+## 실행 데모 영상
+
+<video src="https://github.com/2101080JUNGJINYOUNG/OpenCV-Invisibility-Cloak/releases/download/v1.0.0/default.mp4" controls width="720">
+  브라우저가 video 태그를 지원하지 않는 경우, <a href="https://github.com/2101080JUNGJINYOUNG/OpenCV-Invisibility-Cloak/releases/download/v1.0.0/default.mp4">여기</a>에서 다운로드해서 확인하세요.
+</video>
+
 ## 블록도 (전체 동작 흐름)
 
 아래 블록도는 프로그램이 시작부터 종료까지 어떤 순서로 동작하는지, 그리고 매 프레임마다 어떤 처리 블록들을 거치는지를 보여줍니다. 이 그림의 각 블록이 바로 아래 "주요 기능" 7가지에 그대로 대응되니, 먼저 전체 흐름을 훑어본 뒤 기능 설명을 읽으면 이해하기 쉽습니다.
@@ -55,10 +61,6 @@ OpenCV-Invisibility-Cloak/
 
 - [`docs/`](./docs) — 발표 슬라이드([PDF](./docs/6조%20최종%20발표.pdf), [PPTX](./docs/6조%20최종발표.pptx))와 발표 대본([HWP](./docs/투명망토%20발표%20대본.hwp))
 - [`src/`](./src) — [`invisibility_cloak.py`](./src/invisibility_cloak.py) 하나만 있습니다. 원래 코드 원본이 PDF/HWP로도 제출되어 있었는데, `.py`와 완전히 동일한 코드라 중복을 없애고 실행 파일 하나만 남겼습니다. 코드 전체 내용과 구현 방식은 바로 아래 "코드 상세 설명" 섹션에 기능별로 자세히 정리해뒀습니다.
-
-## 실행 데모 영상
-
-실행 데모 영상은 용량(83.6MB)이 커서 저장소 파일이 아니라 **[Releases](../../releases)** 에 첨부되어 있습니다. Releases 탭에서 최신 릴리스를 열어 다운로드하세요.
 
 ## 실행 방법
 
