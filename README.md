@@ -43,9 +43,6 @@ flowchart TD
     style D fill:#d97706,color:#fff
     style ROW1 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
     style ROW2 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
-
-    classDef bigtxt font-size:18px;
-    class A,B,C,C1,C2,C3,C4,C5,C6,C7,C8,D,E bigtxt;
 ```
 
 ## 주요 기능
