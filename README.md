@@ -13,7 +13,7 @@
 아래 블록도는 프로그램이 시작부터 종료까지 어떤 순서로 동작하는지, 그리고 매 프레임마다 어떤 처리 블록들을 거치는지를 보여줍니다. 이 그림의 각 블록이 바로 아래 "주요 기능" 7가지에 그대로 대응되니, 먼저 전체 흐름을 훑어본 뒤 기능 설명을 읽으면 이해하기 쉽습니다.
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "linear"}} }%%
+%%{init: {"flowchart": {"curve": "linear"}, "themeVariables": {"fontSize": "20px"}} }%%
 flowchart TD
     A["시작<br/>카메라 연결 (VideoCapture)"] --> B["배경 캡처<br/>7초 카운트다운 후 배경 이미지 저장"]
     B --> C["메인 루프 시작<br/>(프레임마다 반복)"]
