@@ -4,7 +4,7 @@
 
 ## 실행 데모 영상
 
-[![실행 데모 영상 재생하기](./media/thumbnail.jpg)](https://youtu.be/Kox0OEBIBek)
+[![실행 데모 영상 재생하기](./assets/thumbnail.jpg)](https://youtu.be/Kox0OEBIBek)
 
 썸네일을 클릭하면 유튜브(일부 공개)에서 원본 화질 그대로 재생됩니다.
 
