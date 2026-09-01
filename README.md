@@ -20,15 +20,15 @@ flowchart TD
 
     subgraph ROW2[" "]
         direction LR
-        C5["⑤ 사이드바 UI 버튼 렌더링<br/>Change BG · Save · Color 등"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
-        C6 --> C7["⑥ 배경 썸네일 표시<br/>(B Picture Show 클릭 시, 5초간)"]
-        C7 --> C8["⑦ 영상 저장<br/>UI 포함본 + 순수 결과본 각각 저장"]
+        C5["⑤ UI 버튼 렌더링<br/>Change BG · Save · Color"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
+        C6 --> C7["⑥ 배경 썸네일 표시<br/>클릭 시 5초간 표시"]
+        C7 --> C8["⑦ 영상 저장<br/>UI 포함본 ·<br/>순수 결과본 저장"]
     end
     subgraph ROW1[" "]
         direction LR
-        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환 & 색상 추출<br/>Red/Green/Blue 중 선택 색상 마스크 생성"]
-        C2 --> C3["③ 노이즈 제거 & 객체 필터링<br/>morphologyEx · dilate · contourArea"]
-        C3 --> C4["④ 투명 망토 합성<br/>마스크 영역=배경, 나머지=현재 프레임"]
+        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환<br/>색상 마스크 생성"]
+        C2 --> C3["③ 노이즈 제거 & 필터링<br/>morphologyEx · dilate<br/>· contourArea"]
+        C3 --> C4["④ 투명 망토 합성<br/>마스크=배경,<br/>나머지=현재 프레임"]
     end
 
     C --> ROW1
