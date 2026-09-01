@@ -13,30 +13,20 @@
 아래 블록도는 프로그램이 시작부터 종료까지 어떤 순서로 동작하는지, 그리고 매 프레임마다 어떤 처리 블록들을 거치는지를 보여줍니다. 이 그림의 각 블록이 바로 아래 "주요 기능" 7가지에 그대로 대응되니, 먼저 전체 흐름을 훑어본 뒤 기능 설명을 읽으면 이해하기 쉽습니다.
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "linear"}}}%%
 flowchart TD
     A["시작<br/>카메라 연결 (VideoCapture)"] --> B["배경 캡처<br/>7초 카운트다운 후 배경 이미지 저장"]
     B --> C["메인 루프 시작<br/>(프레임마다 반복)"]
-
-    subgraph ROW1["프레임 처리"]
-        direction LR
-        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환<br/>색상 마스크 생성"]
-        C2 --> C3["③ 노이즈 제거 & 필터링<br/>morphologyEx · dilate<br/>· contourArea"]
-        C3 --> C4["④ 투명 망토 합성<br/>마스크=배경,<br/>나머지=현재 프레임"]
-    end
-
-    subgraph ROW2["UI 및 저장"]
-        direction LR
-        C5["⑤ UI 버튼 렌더링<br/>Change BG · Save · Color"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
-        C6 --> C7["⑥ 배경 썸네일 표시<br/>클릭 시 5초간 표시"]
-        C7 --> C8["⑦ 영상 저장<br/>UI 포함본 ·<br/>순수 결과본 저장"]
-    end
-
-    C --> ROW1
-    ROW1 --> ROW2
-    ROW2 --> D{"'q' 키 입력?"}
-    D -- 아니오 --> ROW1
-    D -- 예 --> E["종료<br/>카메라/저장 리소스 해제"]
+    C --> C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"]
+    C1 --> C2["② HSV 색상 변환<br/>색상 마스크 생성"]
+    C2 --> C3["③ 노이즈 제거 & 필터링<br/>morphologyEx · dilate<br/>· contourArea"]
+    C3 --> C4["④ 투명 망토 합성<br/>마스크=배경,<br/>나머지=현재 프레임"]
+    C4 --> C5["⑤ UI 버튼 렌더링<br/>Change BG · Save · Color"]
+    C5 --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
+    C6 --> C7["⑥ 배경 썸네일 표시<br/>클릭 시 5초간 표시"]
+    C7 --> C8["⑦ 영상 저장<br/>UI 포함본 ·<br/>순수 결과본 저장"]
+    C8 --> D{"'q' 키 입력?"}
+    D -- "아니오" --> C1
+    D -- "예" --> E["종료<br/>카메라/저장 리소스 해제"]
 
     style A fill:#2563eb,color:#fff
     style B fill:#0891b2,color:#fff
