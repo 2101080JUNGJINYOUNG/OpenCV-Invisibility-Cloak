@@ -13,21 +13,22 @@
 아래 블록도는 프로그램이 시작부터 종료까지 어떤 순서로 동작하는지, 그리고 매 프레임마다 어떤 처리 블록들을 거치는지를 보여줍니다. 이 그림의 각 블록이 바로 아래 "주요 기능" 7가지에 그대로 대응되니, 먼저 전체 흐름을 훑어본 뒤 기능 설명을 읽으면 이해하기 쉽습니다.
 
 ```mermaid
+%%{init: {"flowchart": {"curve": "linear"}} }%%
 flowchart TD
     A["시작<br/>카메라 연결 (VideoCapture)"] --> B["배경 캡처<br/>7초 카운트다운 후 배경 이미지 저장"]
     B --> C["메인 루프 시작<br/>(프레임마다 반복)"]
 
-    subgraph ROW1[" "]
-        direction LR
-        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환 & 색상 추출<br/>Red/Green/Blue 중 선택 색상 마스크 생성"]
-        C2 --> C3["③ 노이즈 제거 & 객체 필터링<br/>morphologyEx · dilate · contourArea"]
-        C3 --> C4["④ 투명 망토 합성<br/>마스크 영역=배경, 나머지=현재 프레임"]
-    end
     subgraph ROW2[" "]
         direction LR
         C5["⑤ 사이드바 UI 버튼 렌더링<br/>Change BG · Save · Color 등"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
         C6 --> C7["⑥ 배경 썸네일 표시<br/>(B Picture Show 클릭 시, 5초간)"]
         C7 --> C8["⑦ 영상 저장<br/>UI 포함본 + 순수 결과본 각각 저장"]
+    end
+    subgraph ROW1[" "]
+        direction LR
+        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환 & 색상 추출<br/>Red/Green/Blue 중 선택 색상 마스크 생성"]
+        C2 --> C3["③ 노이즈 제거 & 객체 필터링<br/>morphologyEx · dilate · contourArea"]
+        C3 --> C4["④ 투명 망토 합성<br/>마스크 영역=배경, 나머지=현재 프레임"]
     end
 
     C --> ROW1
@@ -40,8 +41,8 @@ flowchart TD
     style E fill:#dc2626,color:#fff
     style B fill:#0891b2,color:#fff
     style D fill:#d97706,color:#fff
-    style ROW1 fill:transparent,stroke:transparent
-    style ROW2 fill:transparent,stroke:transparent
+    style ROW1 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
+    style ROW2 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
 ```
 
 ## 주요 기능
