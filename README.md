@@ -4,11 +4,9 @@
 
 ## 실행 데모 영상
 
-<video src="./media/demo.mp4" controls width="720">
-  브라우저가 video 태그를 지원하지 않는 경우, <a href="./media/demo.mp4">여기</a>에서 다운로드해서 확인하세요.
-</video>
+[![실행 데모 영상 재생하기](./media/thumbnail.jpg)](https://youtu.be/Kox0OEBIBek)
 
-용량 제한 때문에 화질을 다소 낮춰 압축한 버전입니다. 원본 고화질 영상은 **[Releases](../../releases)** 에서 다운로드할 수 있습니다.
+썸네일을 클릭하면 유튜브(일부 공개)에서 원본 화질 그대로 재생됩니다.
 
 ## 블록도 (전체 동작 흐름)
 
