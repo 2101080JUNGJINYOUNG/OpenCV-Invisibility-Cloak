@@ -50,11 +50,11 @@ flowchart TD
 ```
 OpenCV-Invisibility-Cloak/
 ├── docs/    # 발표 자료 (슬라이드 PDF/PPTX, 발표 대본 HWP)
-└── src/     # 실행 가능한 파이썬 소스코드 + 코드 원본(PDF/HWP)
+└── src/     # 실행 가능한 파이썬 소스코드
 ```
 
 - [`docs/`](./docs) — 발표 슬라이드([PDF](./docs/6조%20최종%20발표.pdf), [PPTX](./docs/6조%20최종발표.pptx))와 발표 대본([HWP](./docs/투명망토%20발표%20대본.hwp))
-- [`src/`](./src) — 바로 실행 가능한 [`invisibility_cloak.py`](./src/invisibility_cloak.py)와 코드 원본([PDF](./src/컴퓨터%20비전%206조%20코드.pdf), [HWP](./src/컴퓨터%20비전%206조%20코드.hwp)). **세 파일은 모두 동일한 코드**이며, 형식만 다릅니다(실행용 .py / 제출용 PDF / 원본 HWP). 실행은 `.py` 파일만 있으면 됩니다.
+- [`src/`](./src) — [`invisibility_cloak.py`](./src/invisibility_cloak.py) 하나만 있습니다. 원래 코드 원본이 PDF/HWP로도 제출되어 있었는데, `.py`와 완전히 동일한 코드라 중복을 없애고 실행 파일 하나만 남겼습니다. 코드 전체 내용과 구현 방식은 바로 아래 "코드 상세 설명" 섹션에 기능별로 자세히 정리해뒀습니다.
 
 ## 실행 데모 영상
 
