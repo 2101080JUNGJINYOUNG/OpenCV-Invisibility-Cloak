@@ -1,3 +1,5 @@
+[![⬅ 루트로 돌아가기](https://img.shields.io/badge/⬅_루트로_돌아가기-2563eb?style=for-the-badge)](../README.md)
+
 # assets
 
 메인 [README](../README.md)에서 쓰는 이미지 자산을 모아둔 폴더입니다.
