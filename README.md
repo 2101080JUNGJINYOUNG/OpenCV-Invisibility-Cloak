@@ -66,9 +66,13 @@ OpenCV-Invisibility-Cloak/
 └── src/      # 실행 가능한 파이썬 소스코드 + 코드 상세 설명
 ```
 
-- [`assets/`](./assets) — README에서 쓰는 [데모 영상 썸네일](./assets/thumbnail.jpg) 이미지입니다.
-- [`docs/`](./docs) — 발표 슬라이드([PDF](./docs/6조%20최종%20발표.pdf), [PPTX](./docs/6조%20최종발표.pptx))와 발표 대본([HWP](./docs/투명망토%20발표%20대본.hwp))
-- [`src/`](./src) — [`invisibility_cloak.py`](./src/invisibility_cloak.py) 하나만 있습니다. 원래 코드 원본이 PDF/HWP로도 제출되어 있었는데, `.py`와 완전히 동일한 코드라 중복을 없애고 실행 파일 하나만 남겼습니다. 코드 전체 내용과 구현 방식은 [`src/README.md`](./src/README.md)에 기능별로 자세히 정리해뒀습니다.
+| 폴더 | 바로가기 | 설명 |
+|:---:|:---:|---|
+| **`assets/`** | [![열기](https://img.shields.io/badge/📁_Open-2563eb?style=for-the-badge)](./assets) | README에서 쓰는 [데모 영상 썸네일](./assets/thumbnail.jpg) 이미지 |
+| **`docs/`** | [![열기](https://img.shields.io/badge/📁_Open-0891b2?style=for-the-badge)](./docs) | 발표 슬라이드([PDF](./docs/6조%20최종%20발표.pdf), [PPTX](./docs/6조%20최종발표.pptx))와 발표 대본([HWP](./docs/투명망토%20발표%20대본.hwp)) |
+| **`src/`** | [![열기](https://img.shields.io/badge/📁_Open-16a34a?style=for-the-badge)](./src) | [`invisibility_cloak.py`](./src/invisibility_cloak.py) 소스코드와 [`README.md`](./src/README.md)(코드 상세 설명) |
+
+`src/`에는 원래 PDF/HWP로도 제출됐던 코드 원본이 있었는데, `.py`와 완전히 동일한 코드라 중복을 없애고 실행 파일 하나만 남겼습니다.
 
 ## 실행 방법
 
