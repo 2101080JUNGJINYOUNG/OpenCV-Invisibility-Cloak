@@ -61,9 +61,10 @@ style ROW2 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
 
 ```
 OpenCV-Invisibility-Cloak/
-├── assets/   # README에 쓰이는 이미지 (데모 영상 썸네일)
-├── docs/     # 발표 자료 (슬라이드 PDF/PPTX, 발표 대본 HWP)
-└── src/      # 실행 가능한 파이썬 소스코드 + 코드 상세 설명
+├── assets/            # README에 쓰이는 이미지 (데모 영상 썸네일)
+├── docs/              # 발표 자료 (슬라이드 PDF/PPTX, 발표 대본 HWP)
+├── src/               # 실행 가능한 파이썬 소스코드 + 코드 상세 설명
+└── requirements.txt   # 의존 라이브러리 목록 (opencv-python, numpy)
 ```
 
 | 폴더 | 설명 |
@@ -76,12 +77,72 @@ OpenCV-Invisibility-Cloak/
 
 ## 실행 방법
 
+### 0. 사전 준비물
+
+- [Git](https://git-scm.com/downloads)
+- Python 3.8 이상
+- 웹캠(내장/외장 카메라)이 연결된 컴퓨터
+
+### 1. 저장소 클론(다운로드)
+
+터미널(Windows는 명령 프롬프트/PowerShell, Mac/Linux는 터미널)을 열고 아래 명령을 순서대로 입력합니다.
+
 ```bash
-pip install opencv-python numpy
+git clone https://github.com/2101080JUNGJINYOUNG/OpenCV-Invisibility-Cloak.git
+cd OpenCV-Invisibility-Cloak
+```
+
+> Git이 없다면 저장소 페이지 오른쪽 위 **Code → Download ZIP** 버튼으로도 받을 수 있습니다.
+
+### 2. (선택) 가상환경 만들기
+
+다른 프로젝트와 라이브러리가 섞이지 않도록 가상환경 사용을 권장합니다. 생략하고 바로 3단계로 넘어가도 됩니다.
+
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Mac / Linux
+source venv/bin/activate
+```
+
+### 3. 의존성 설치
+
+이 프로젝트는 `opencv-python`, `numpy` 두 라이브러리만 사용하며, [`requirements.txt`](./requirements.txt)에 정리되어 있습니다.
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. 실행
+
+```bash
 python src/invisibility_cloak.py
 ```
 
 실행하면 7초 카운트다운 후 현재 화면이 배경으로 저장되므로, 이 시간 동안 카메라 앞에서 비켜 있어야 합니다. 이후 빨간색(기본값) 천을 몸에 두르면 그 부분이 배경으로 대체됩니다. 왼쪽 사이드바 버튼으로 배경 재촬영, 색상 변경, 스크린샷 저장, 배경 미리보기를 조작할 수 있고, `q` 키를 누르면 영상 저장 후 종료됩니다.
+
+### 5. 코드 수정 후 GitHub에 반영하기(커밋 & 푸시)
+
+직접 코드를 수정해보고 싶다면, 클론한 폴더 안에서 다음 순서로 변경 사항을 GitHub에 올릴 수 있습니다.
+
+```bash
+# 1) 현재 어떤 파일이 바뀌었는지 확인
+git status
+
+# 2) 바뀐 파일을 스테이징(커밋 대상으로 등록)
+git add .
+
+# 3) 커밋 메시지와 함께 기록 남기기
+git commit -m "수정 내용 요약"
+
+# 4) GitHub 저장소로 업로드(푸시)
+git push
+```
+
+처음 `git push`를 실행하면 GitHub 계정 로그인을 요구할 수 있습니다. 이때는 비밀번호 대신 [Personal Access Token](https://docs.github.com/ko/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)을 발급받아 입력해야 합니다(2021년 이후 GitHub는 비밀번호 인증을 지원하지 않습니다). 본인이 만든 저장소가 아니라면, GitHub에서 **Fork**(내 계정으로 복사) 후 위 과정을 진행하고, 원본 저장소에 반영하고 싶을 때 **Pull Request**를 보내면 됩니다.
 
 ## 코드 상세 설명
 
