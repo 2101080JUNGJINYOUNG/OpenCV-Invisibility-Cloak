@@ -15,34 +15,34 @@
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear"}} }%%
 flowchart TD
-    A["시작<br/>카메라 연결 (VideoCapture)"] --> B["배경 캡처<br/>7초 카운트다운 후 배경 이미지 저장"]
-    B --> C["메인 루프 시작<br/>(프레임마다 반복)"]
+A["시작<br/>카메라 연결 (VideoCapture)"] --> B["배경 캡처<br/>7초 카운트다운 후 배경 이미지 저장"]
+B --> C["메인 루프 시작<br/>(프레임마다 반복)"]
 
-    subgraph ROW2[" "]
-        direction LR
-        C5["⑤ UI 버튼 렌더링<br/>Change BG · Save · Color"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
-        C6 --> C7["⑥ 배경 썸네일 표시<br/>클릭 시 5초간 표시"]
-        C7 --> C8["⑦ 영상 저장<br/>UI 포함본 ·<br/>순수 결과본 저장"]
-    end
-    subgraph ROW1[" "]
-        direction LR
-        C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환<br/>색상 마스크 생성"]
-        C2 --> C3["③ 노이즈 제거 & 필터링<br/>morphologyEx · dilate<br/>· contourArea"]
-        C3 --> C4["④ 투명 망토 합성<br/>마스크=배경,<br/>나머지=현재 프레임"]
-    end
+subgraph ROW2[" "]
+direction LR
+C5["⑤ UI 버튼 렌더링<br/>Change BG · Save · Color"] --> C6["마우스 클릭 처리<br/>(setMouseCallback)"]
+C6 --> C7["⑥ 배경 썸네일 표시<br/>클릭 시 5초간 표시"]
+C7 --> C8["⑦ 영상 저장<br/>UI 포함본 ·<br/>순수 결과본 저장"]
+end
+subgraph ROW1[" "]
+direction LR
+C1["① 프레임 읽기 & 전처리<br/>좌우 반전 · 리사이즈"] --> C2["② HSV 색상 변환<br/>색상 마스크 생성"]
+C2 --> C3["③ 노이즈 제거 & 필터링<br/>morphologyEx · dilate<br/>· contourArea"]
+C3 --> C4["④ 투명 망토 합성<br/>마스크=배경,<br/>나머지=현재 프레임"]
+end
 
-    C --> ROW1
-    ROW1 --> ROW2
-    ROW2 --> D{"'q' 키 입력?"}
-    D -- 아니오 --> ROW1
-    D -- 예 --> E["종료<br/>카메라/저장 리소스 해제"]
+C --> ROW1
+ROW1 --> ROW2
+ROW2 --> D{"'q' 키 입력?"}
+D -- 아니오 --> ROW1
+D -- 예 --> E["종료<br/>카메라/저장 리소스 해제"]
 
-    style A fill:#2563eb,color:#fff
-    style E fill:#dc2626,color:#fff
-    style B fill:#0891b2,color:#fff
-    style D fill:#d97706,color:#fff
-    style ROW1 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
-    style ROW2 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
+style A fill:#2563eb,color:#fff
+style E fill:#dc2626,color:#fff
+style B fill:#0891b2,color:#fff
+style D fill:#d97706,color:#fff
+style ROW1 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
+style ROW2 fill:transparent,stroke:#cbd5e1,stroke-dasharray: 4 3
 ```
 
 ## 주요 기능
@@ -61,10 +61,12 @@ flowchart TD
 
 ```
 OpenCV-Invisibility-Cloak/
-├── docs/    # 발표 자료 (슬라이드 PDF/PPTX, 발표 대본 HWP)
-└── src/     # 실행 가능한 파이썬 소스코드
+├── assets/   # README에 쓰이는 이미지 (데모 영상 썸네일)
+├── docs/     # 발표 자료 (슬라이드 PDF/PPTX, 발표 대본 HWP)
+└── src/      # 실행 가능한 파이썬 소스코드 + 코드 상세 설명
 ```
 
+- [`assets/`](./assets) — README에서 쓰는 [데모 영상 썸네일](./assets/thumbnail.jpg) 이미지입니다.
 - [`docs/`](./docs) — 발표 슬라이드([PDF](./docs/6조%20최종%20발표.pdf), [PPTX](./docs/6조%20최종발표.pptx))와 발표 대본([HWP](./docs/투명망토%20발표%20대본.hwp))
 - [`src/`](./src) — [`invisibility_cloak.py`](./src/invisibility_cloak.py) 하나만 있습니다. 원래 코드 원본이 PDF/HWP로도 제출되어 있었는데, `.py`와 완전히 동일한 코드라 중복을 없애고 실행 파일 하나만 남겼습니다. 코드 전체 내용과 구현 방식은 [`src/README.md`](./src/README.md)에 기능별로 자세히 정리해뒀습니다.
 
